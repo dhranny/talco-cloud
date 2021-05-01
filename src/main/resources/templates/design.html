@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Talco Design</title>
+	</head>
+	<body>
+		<h1>Design your talco</h1>
+		<img th:src="@{/images/talco.jpg}"/>
+		
+		<form method="post" th:object="${design}">
+			<div class="grid">
+				<div class="ingredients-group" id="wraps">
+					<h3>Designate your Wraps</h1>
+					<div th:each="ingredients : ${WRAP}">
+						<input name="ingredient" type="checkbox" th:value="${ingredients.id}"/>
+						<span th:text="${ingredients.name}">INGREDIENT</span></br>
+					</div>
+				</div>
+				<div class="ingredients-group" id="protein">
+					<h3>Designate your protein</h3>
+					<div th:each="ingredients : ${PROTEIN}">
+							<input name="ingredient" type="checkbox" th:value="${ingredients.id}"/>
+							<span th:text="${ingredients.name}">INGREDIENT</span></br>
+					</div>
+				<div class="ingredients-group" id="veggies">
+					<h3>Designate your veggies</h3>
+					<div th:each="ingredients : ${VEGGIES}">
+							<input name="ingredient" type="checkbox" th:value="${ingredients.id}"/>
+							<span th:text="${ingredients.name}">INGREDIENT</span></br>
+					</div>
+				<div class="ingredients-group" id="cheese">
+					<h3>Designate your protein</h3>
+					<div th:each="ingredients : ${CHEESE}">
+							<input name="ingredient" type="checkbox" th:value="${ingredients.id}"/>
+							<span th:text="${ingredients.name}">INGREDIENT</span></br>
+					</div>
+				<div class="ingredients-group" id="sauce">
+					<h3>Designate your protein</h3>
+					<div th:each="ingredients : ${SAUCE}">
+							<input name="ingredient" type="checkbox" th:value="${ingredients.id}"/>
+							<span th:text="${ingredients.name}">INGREDIENT</span></br>
+					</div>
+				</div>
+			</div>
+			<div>
+			<h3>Name your talco creation</h3>
+			<input type="text" th:field="*{name}">
+			<button>Submit</button>
+	</body>
+</html>
